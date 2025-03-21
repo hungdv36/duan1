@@ -23,7 +23,7 @@ function connectDB() {
 }
 
 // Thêm file
-function uploadfile($file, $folderUpload){
+function uploadFile($file, $folderUpload){
     $pathStrorage = $folderUpload . time() . $file['name'];
 
     $from = $file['tmp_name'];

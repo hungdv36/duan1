@@ -42,7 +42,7 @@ class AdminSanPhamController
             $hinh_anh = $_FILES['hinh_anh'];
             
             // Lưu hình ảnh vào
-            $file_thumb = uploadFile($hinh_anh, './uploads');
+            $file_thumb = uploadFile($hinh_anh, './uploads/');
 
             $img_array = $_FILES['img_array'];
 
