@@ -6,11 +6,11 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 
 // Require toàn bộ file Controllers
 require_once './controllers/AdminDanhMucController.php';
-// require_once './controllers/AdminSanPhamController.php';
+require_once './controllers/AdminSanPhamController.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
-// require_once './models/AdminSanPham.php';
+require_once './models/AdminSanPham.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -26,4 +26,12 @@ match ($act) {
     'form-sua-danh-muc' =>(new AdminDanhMucController)->formEditDanhMuc(),
     'sua-danh-muc' =>(new AdminDanhMucController)->postEditDanhMuc(),
     'xoa-danh-muc' =>(new AdminDanhMucController)->deleteDanhMuc(),
+
+    // route sản phẩm
+    'san-pham' =>(new AdminSanPhamController)->danhSachSanPham(),
+    'form-them-san-pham' =>(new AdminSanPhamController)->formAddSanPham(),
+    'them-san-pham' =>(new AdminSanPhamController)->postAddSanPham(),
+    // 'form-sua-san-pham' =>(new AdminSanPhamController)->formEditSanPham(),
+    // 'sua-san-pham' =>(new AdminSanPhamController)->postEditSanPham(),
+    // 'xoa-san-pham' =>(new AdminSanPhamController)->deleteSanPham(),
 };
