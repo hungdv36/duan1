@@ -42,3 +42,13 @@ function deletefile($file){
         unlink($pathDelete);
     }
 }
+
+// Xóa session sau khi load trang
+function deleteSessionError(){
+    if (isset($_SESSION['flash'])) {
+        // Hủy session sau khi tải trang
+        unset($_SESSION['flash']);
+        session_unset();
+        session_destroy();
+    }
+}
