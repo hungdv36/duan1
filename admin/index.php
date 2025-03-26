@@ -23,6 +23,8 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
 
+    prinr_r($act); die()l;
+
     // route danh mục
     'danh-muc' =>(new AdminDanhMucController)->danhSachDanhMuc(),
     'form-them-danh-muc' =>(new AdminDanhMucController)->formAddDanhMuc(),
