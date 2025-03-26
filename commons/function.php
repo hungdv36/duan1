@@ -21,3 +21,24 @@ function connectDB() {
         echo ("Connection failed: " . $e->getMessage());
     }
 }
+
+// Thêm file
+function uploadFile($file, $folderUpload){
+    $pathStrorage = $folderUpload . time() . $file['name'];
+
+    $from = $file['tmp_name'];
+    $to = PATH_ROOT . $pathStrorage;
+
+    if(move_uploaded_file($from, $to)){
+        return $pathStrorage;
+    }
+    return null;
+}
+
+// Xóa file
+function deletefile($file){
+    $pathDelete = PATH_ROOT . $file;
+    if (file_exists($pathDelete)) {
+        unlink($pathDelete);
+    }
+}
