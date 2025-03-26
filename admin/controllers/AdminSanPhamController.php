@@ -193,7 +193,7 @@ class AdminSanPhamController
                 $new_file = uploadFile($hinh_anh, './uploads/');
                 
                 if(!empty($old_file)) {//Nếu có ảnh cũ thì xóa đi
-                    deletefile($old_file);
+                    deleteFile($old_file);
                 }else{
                     $new_file = $old_file;
                 }
@@ -227,6 +227,66 @@ class AdminSanPhamController
                 header("Location: " . BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $san_pham_id);
                 exit();
             }
+        }
+    }
+
+    public function postEditAnhSanPham(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $san_pham_id = $_POST['san_pham_id'] ?? '';
+
+            // Lấy danh sách ảnh hiện tại của sản phẩm
+            $listAnhSanPhamCurrent = $this->modelSanPham->getListAnhSanPham($san_pham_id);
+
+            // Xử lý ảnh được gửi từ form 
+            $img_array = $_FILES['img_array'];
+            $img_delete = isset($_POST['img_delete']) ? explode(',', $_POST['img_delete']) : [];
+            $current_img_ids = $_POST['current_img_ids'] ?? [];
+
+            // Khai báo mẳng để lưu ảnh thêm mới hoặc thay thế ảnh cũ
+            $upload_file = [];
+
+            // Upload ảnh mới thay ảnh cũ
+            foreach($img_array['name'] as $key=>$value){
+                if($img_array['error'][$key] == UPLOAD_ERR_OK){
+                    $new_file = uploadFileAlbum($img_array, './uploads/', $key);
+                    if($new_file){
+                        $upload_file[] = [
+                            'id' => $current_img_ids[$key] ?? null,
+                            'file' => $new_file
+                        ];
+                    }
+                }
+            }
+
+            // Lưu ảnh mới vào db và xóa ảnh cũ nếu có
+            foreach($upload_file as $file_info){
+                if($file_info['id']){
+                    $old_file = $this->modelSanPham->getDetailAnhSanPham($file_info['id'])['link_hinh_anh'];
+
+                    // Cập nhật ảnh cũ
+                    $this->modelSanPham->updateAnhSanPham($file_info['id'], $file_info['file']);
+
+                    // Xóa ảnh cũ
+                    deleteFile($old_file);
+                }else {
+                    // Thêm ảnh mới
+                    $this->modelSanPham->insertAlbumAnhSanPham($san_pham_id, $file_info['file']);
+                }
+            }
+
+            // Xử lý xóa ảnh
+            foreach($listAnhSanPhamCurrent as $anhSP){
+                $anh_id = $anhSP['id'];
+                if(in_array($anh_id, $img_delete)){
+                    // Xóa ảnh trong db
+                    $this->modelSanPham->destroyAnhSanPham($anh_id);
+
+                    // Xóa file
+                    deleteFile($anhSP['link_hinh_anh']);
+                }
+            }
+            header("Location: " . BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $san_pham_id);
+            exit();
         }
     }
     // public function deleteDanhMuc(){

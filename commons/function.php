@@ -36,7 +36,7 @@ function uploadFile($file, $folderUpload){
 }
 
 // Xóa file
-function deletefile($file){
+function deleteFile($file){
     $pathDelete = PATH_ROOT . $file;
     if (file_exists($pathDelete)) {
         unlink($pathDelete);
@@ -51,4 +51,17 @@ function deleteSessionError(){
         session_unset();
         session_destroy();
     }
+}
+
+// Upload - update album ảnh
+function uploadFileAlbum($file, $folderUpload, $key){
+    $pathStrorage = $folderUpload . time() . $file['name'][$key];
+
+    $from = $file['tmp_name'][$key];
+    $to = PATH_ROOT . $pathStrorage;
+
+    if(move_uploaded_file($from, $to)){
+        return $pathStrorage;
+    }
+    return null;
 }

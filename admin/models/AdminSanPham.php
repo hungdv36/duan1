@@ -89,7 +89,7 @@ class AdminSanPham{
 
             $stmt->execute([':id' => $id]);
 
-            return  $stmt->fetch();
+            return  $stmt->fetchAll();
         } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
         }
@@ -126,6 +126,57 @@ class AdminSanPham{
             ]);
 
             // Lấy id sản phẩm vừa thêm
+            return  true;
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
+
+    public function getDetailAnhSanPham($id){
+        try {
+            $sql = 'SELECT * FROM hinh_anh_san_phams WHERE id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([':id' => $id]);
+
+            return  $stmt->fetch();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
+
+    public function updateAnhSanPham($id, $new_file){
+        try {
+            $sql = 'UPDATE hinh_anh_san_phams
+                    SET
+                        link_hinh_anh = :new_file
+                    WHERE id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':new_file' => $new_file,
+                ':id' => $id,
+            ]);
+
+            // Lấy id sản phẩm vừa thêm
+            return  true;
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
+
+    public function destroyAnhSanPham($id){
+        try {
+            $sql = 'DELETE FROM hinh_anh_san_phams WHERE id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':id' => $id
+            ]);
+
             return  true;
         } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
