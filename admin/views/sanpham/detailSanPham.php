@@ -54,60 +54,46 @@
 
           </div>
         </div>
-        <div class="row mt-4">
-          <nav class="w-100">
-            <div class="nav nav-tabs" id="product-tab" role="tablist">
-              <a class="nav-item nav-link active" id="product-desc-tab" data-bs-toggle="tab" href="#binh-luan" role="tab"
-                aria-controls="product-desc" aria-selected="true">Bình luận sản phẩm</a>
-            </div>
-          </nav>
-          <div class="tab-content p-3 w-100" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="binh-luan" role="tabpanel" aria-labelledby="product-desc-tab">
-              <div class="container-fluid">
-                <div class="table-responsive">
-                  <table class="table table-striped table-hover text-center">
-                    <thead class="table-dark">
-                      <tr>
-                        <th>#</th>
-                        <th>Tên người bình luận</th>
-                        <th>Nội dung</th>
-                        <th>Ngày đăng</th>
-                        <th>Thao tác</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Đào Văn Hùng</td>
-                        <td>Đồng hồ đẹp</td>
-                        <td>25/03/2025</td>
-                        <td>
-                          <div class="btn-group">
-                            <a href="#" class="btn btn-warning btn-sm">Ẩn</a>
-                            <a href="#" class="btn btn-danger btn-sm">Xóa</a>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Nguyễn Thu Trang</td>
-                        <td>Đồng hồ đẹp</td>
-                        <td>25/03/2025</td>
-                        <td>
-                          <div class="btn-group">
-                            <a href="#" class="btn btn-warning btn-sm">Ẩn</a>
-                            <a href="#" class="btn btn-danger btn-sm">Xóa</a>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        <div class="col-12">
+                    <hr>
+                    <h2>Bình luận của sản phẩm</h2>
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Người bình luận</th>
+                                <th>Nội dung</th>
+                                <th>Ngày bình luận</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($listBinhLuan as $key => $binhLuan): ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><a target="_blank" href="<?= BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $binhLuan['tai_khoan_id'] ?>">
+                                        <?= $binhLuan['ho_ten'] ?></a>
+                                    </td>
+                                    <td><?= $binhLuan['noi_dung'] ?></td>
+                                    <td><?= $binhLuan['ngay_dang'] ?></td>
+                                    <td><?= $binhLuan['trang_thai'] == 1 ? 'Hiển thị' : 'Bị ẩn' ?></td>
+                                    <td>
+                                        <form action="<?= BASE_URL_ADMIN . '?act=update-trang-thai-binh-luan' ?>" method="POST">
+                                            <input type="hidden" name="id_binh_luan" value="<?= $binhLuan['id'] ?>">
+                                            <input type="hidden" name="name_view" value="detail_sanpham">
+                                            <button onclick="return confirm('Bạn có muốn ẩn bình luận này không?')" class="btn btn-warning">
+                                                <?= $binhLuan['trang_thai'] == 1 ? 'Ẩn' : 'Bỏ ẩn' ?>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
 
+                    </table>
+                </div>
       </div>
       <!-- /.card-body -->
     </div>

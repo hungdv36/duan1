@@ -46,6 +46,9 @@ match ($act) {
     'xoa-san-pham' =>(new AdminSanPhamController())->deleteSanPham(),
     'chi-tiet-san-pham' =>(new AdminSanPhamController())->detailSanPham(),
 
+    // router bình luận
+    'update-trang-thai-binh-luan' =>(new AdminSanPhamController())->updateTrangThaiBinhLuan(),
+
 
     // route quản lý đơn hàng
     'don-hang' =>(new AdminDonHangController())->danhSachDonHang(),
@@ -60,5 +63,13 @@ match ($act) {
         'them-quan-tri' => (new AdminTaiKhoanController())->postAddQuanTri(),
         'form-sua-quan-tri' => (new AdminTaiKhoanController())->formEditQuanTri(),
         'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
+
+        // Route reset password tài khoản
         'reset-password' => (new AdminTaiKhoanController())->resetPasssword(),
+
+        // Quản lý tài khoản khách hàng
+        'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
+        'form-sua-khach-hang' => (new AdminTaiKhoanController())->formEditKhachHang(),
+        'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
+        'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
 };

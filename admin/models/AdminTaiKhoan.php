@@ -103,4 +103,36 @@ class AdminTaiKhoan
             echo "Lỗi: " . $e->getMessage();
         }
     }
+
+    public function updateKhachHang($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai){
+        try {
+            $sql = 'UPDATE tai_khoans
+                    SET
+                        ho_ten = :ho_ten,
+                        email = :email,
+                        so_dien_thoai = :so_dien_thoai,
+                        ngay_sinh = :ngay_sinh,
+                        gioi_tinh = :gioi_tinh,
+                        dia_chi = :dia_chi,
+                        trang_thai = :trang_thai
+                    WHERE id = :id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':ho_ten' => $ho_ten,
+                ':email' => $email,
+                ':so_dien_thoai' => $so_dien_thoai,
+                ':ngay_sinh' => $ngay_sinh,
+                ':gioi_tinh' => $gioi_tinh,
+                ':dia_chi' => $dia_chi,
+                ':trang_thai' => $trang_thai,
+                ':id' => $id
+            ]);
+
+            return  true;
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
 }
