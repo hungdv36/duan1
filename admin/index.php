@@ -40,6 +40,8 @@ match ($act) {
     // route báo cáo thống kê - trang chủ
     '/' => (new AdminBaoCaoThongKeController())->home(),
 
+    prinr_r($act); die()l;
+
     // route danh mục
     'danh-muc' =>(new AdminDanhMucController())->danhSachDanhMuc(),
     'form-them-danh-muc' =>(new AdminDanhMucController())->formAddDanhMuc(),

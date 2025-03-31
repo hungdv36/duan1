@@ -23,7 +23,7 @@ class AdminDonHang{
             echo "Lỗi: " . $e->getMessage();
         }
     }
-<<<<<<< HEAD
+
     
     // public function insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $so_luong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh_anh){
     //     try {
@@ -49,7 +49,7 @@ class AdminDonHang{
     //         echo "Lỗi: " . $e->getMessage();
     //     }
     // }
-=======
+
 
     public function getDetailDonHang($id){
         try {
@@ -155,5 +155,4 @@ class AdminDonHang{
             echo "Lỗi: " . $e->getMessage();
         }
     }
->>>>>>> upstream/daohung36
 }

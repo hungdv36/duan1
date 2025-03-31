@@ -14,6 +14,7 @@ function connectDB() {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // cài đặt chế độ trả dữ liệu
+
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
         return $conn;
@@ -43,37 +44,10 @@ function deleteFile($file){
     }
 }
 
-// Xóa session sau khi load trang
-function deleteSessionError(){
-    if (isset($_SESSION['flash'])) {
-        // Hủy session sau khi tải trang
-        unset($_SESSION['flash']);
-        session_unset();
-        // session_destroy();
+function formatPrice($price) {
+    // Đảm bảo rằng giá trị là số
+    if (is_numeric($price)) {
+        return number_format($price, 0, ',', '.');
     }
-}
-
-// Upload - update album ảnh
-function uploadFileAlbum($file, $folderUpload, $key){
-    $pathStrorage = $folderUpload . time() . $file['name'][$key];
-
-    $from = $file['tmp_name'][$key];
-    $to = PATH_ROOT . $pathStrorage;
-
-    if(move_uploaded_file($from, $to)){
-        return $pathStrorage;
-    }
-    return null;
-}
-
-// format date
-function formatDate($date){
-    return date("d-m-Y", strtotime($date));
-}
-
-function checkLoginAdmin(){
-    if(!isset($_SESSION['user_admin'])){
-        header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
-        exit();
-    }
+    return '0';
 }
