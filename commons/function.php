@@ -49,7 +49,7 @@ function deleteSessionError(){
         // Hủy session sau khi tải trang
         unset($_SESSION['flash']);
         session_unset();
-        session_destroy();
+        // session_destroy();
     }
 }
 
@@ -69,4 +69,11 @@ function uploadFileAlbum($file, $folderUpload, $key){
 // format date
 function formatDate($date){
     return date("d-m-Y", strtotime($date));
+}
+
+function checkLoginAdmin(){
+    if(!isset($_SESSION['user_admin'])){
+        header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+        exit();
+    }
 }

@@ -227,4 +227,45 @@ class AdminTaiKhoanController
         $listBinhLuan = $this->modelSanPham->getBinhLuanFromKhachHang($id_khach_hang);
         require_once './views/taikhoan/khachhang/detailKhachHang.php';
     }
+
+    public function formLogin(){
+        require_once './views/auth/formLogin.php';
+        deleteSessionError();
+    }
+
+    public function login(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Lấy email và pass gửi lên từ form
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            // var_dump($email); die;
+
+            // Xử lý kiểm tra thông tin đăng nhập
+            $user = $this->modelTaiKhoan->checklogin($email, $password);
+
+            if ($user == $email) {
+                // Lưu thông tin vao session
+                $_SESSION['user_admin'] = $user;
+                header("Location: " . BASE_URL_ADMIN);
+                exit();
+            }else{
+                // Lỗi thì lưu lỗi vào session
+                $_SESSION['error'] = $user;
+                // var_dump($_SESSION['error']); die;
+
+                $_SESSION['flash'] = true;
+
+                header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+                exit();
+            }
+        }
+    }
+
+    public function logout(){
+        if (isset($_SESSION['user_admin'])) {
+            unset($_SESSION['user_admin']);
+            header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+        }
+    }
 }
