@@ -14,6 +14,7 @@ function connectDB() {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // cài đặt chế độ trả dữ liệu
+
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
         return $conn;
@@ -41,4 +42,11 @@ function deletefile($file){
     if (file_exists($pathDelete)) {
         unlink($pathDelete);
     }
+}
+function formatPrice($price) {
+    // Đảm bảo rằng giá trị là số
+    if (is_numeric($price)) {
+        return number_format($price, 0, ',', '.');
+    }
+    return '0';
 }
