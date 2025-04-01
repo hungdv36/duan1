@@ -48,7 +48,8 @@ function deleteSessionError(){
     if (isset($_SESSION['flash'])) {
         // Hủy session sau khi tải trang
         unset($_SESSION['flash']);
-        session_unset();
+        unset($_SESSION['error']);
+        // session_unset();
         // session_destroy();
     }
 }
