@@ -23,7 +23,7 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
 
-    prinr_r($act); die()l;
+    // prinr_r($act); die();
 
     // route danh mục
     'danh-muc' =>(new AdminDanhMucController)->danhSachDanhMuc(),

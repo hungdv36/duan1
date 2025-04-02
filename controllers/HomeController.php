@@ -3,9 +3,19 @@
 class HomeController
 {
     public $modelSanPham;
+    public $modelDanhMuc;
+    public $modelTaiKhoan;
+    public $modelGioHang;
+    public $modelDonHang;
+
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
+        $this->modelDanhMuc = new DanhMuc();
+        $this->modelTaiKhoan = new TaiKhoan();
+        $this->modelGioHang = new GioHang();
+        $this->modelDonHang = new DonHang();
+
     }
 
     public function home()
@@ -115,11 +125,11 @@ class HomeController
             $user = $this->modelTaiKhoan->getTaiKhoanFormEmail($_SESSION['user_client']);
             // lấy dữ liệu giỏ hàng của người dùng
 
-            $gioHang = $this->modelGioHang->getGioHangFormEmail($user['id']);
+            $gioHang = $this->modelGioHang->getGioHangFormUser($user['id']);
             if (!$gioHang) {
                 $gioHangId = $this->modelGioHang->addGioHang($user['id']);
                 $gioHang = ['id'=>$gioHangId];
-                $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+                $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);    
             } else {
                 $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
             }
@@ -146,11 +156,11 @@ class HomeController
             $user = $this->modelTaiKhoan->getTaiKhoanFormEmail($_SESSION['user_client']);
             $tai_khoan_id = $user['id'];
 
-            $ma_don_hang = 'DH-'. rand(1000,9999)
+            $ma_don_hang = 'DH-'. rand(1000,9999);
 
             // Thêm trông tin vào DB
 
-            $this->modelDonHang->addDonHang($tai_khoan_id,
+            $donHang = $this->modelDonHang->addDonHang($tai_khoan_id,
                                             $ten_nguoi_nhan,
                                             $email_nguoi_nhan,
                                             $sdt_nguoi_nhan,
@@ -162,7 +172,39 @@ class HomeController
                                             $ma_don_hang,
                                             $trang_thai_id,
             );
+            // lấy thông tin giỏ hàng của người dùng 
+            $gioHang = $this->modelGioHang->layGioHangTuNguoiDung($tai_khoan_id);
 
+            // Lưu sản phẩm vào chi tiết đơn hàng
+            if ($donHang) {
+                // lấy ra toàn bộ sản phẩm trong giỏ hàng
+                $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+
+                //Thêm từng sản phẩm từ giỏ hàng vào bảng chi tiết đơn hàng
+                foreach($chiTietGioHang as $item){
+                    $donGia= $item['gia_khuyen_mai'] ?? $item['gia_san_pham']; // ưu tiên đơn giá lấy giá khuyễn mãi
+
+                    $this->modelDonHang->addChiTietDonHang(
+                        $donHang, // id đơn hàng vừa tạo
+                        $item['san_pham_id'], // id sản phẩm
+                        $donGia, // đơn giá lấy từ sản phẩm
+                        $item['so_luong'], // số lượng
+                        $donGia *  $item['so_luong'] // thành tiền
+                    );
+                } 
+                // sau khi thêm xong phải tiến hành xóa sản phẩm trong giỏ hàng
+                // Xóa toàn bộ sản phẩm trong chi tiết giỏ hàng 
+                $this-> modelGioHang->clearDetailGioHang($gioHang['id']);
+                // xóa thông tin giỏ hang người dùng
+                $this-> modelGioHang->clearGioHang($tai_khoan_id);
+
+                // chuyển hướng về trang lịch sử mua hàng 
+                // header("location: " . BASE_URL . '?act=lich-su-mua-hang');
+                exit();
+            }else {
+                var_dump('Lỗi đặt hàng vui lòng thử lại sau');
+                die();
+            }
         }
     }
 }

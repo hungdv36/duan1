@@ -33,4 +33,22 @@ class DonHang{
         }
                                     
     }
+    public function addChiTietDonHang($don_hang_id, $san_pham_id, $don_gia, $so_luong, $thanh_tien){
+        try {
+            $sql = "INSERT INTO chi_tiet_don_hangs (don_hang_id, san_pham_id, don_gia, so_luong, thanh_tien)
+            VALUES (:don_hang_id, :san_pham_id, :don_gia, :so_luong, :thanh_tien)";
+            
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':don_hang_id'  => $don_hang_id,
+                ':san_pham_id'  => $san_pham_id,
+                ':don_gia'      => $don_gia,
+                ':so_luong'     => $so_luong,
+                ':thanh_tien'   => $thanh_tien,
+            ]);
+            return true;
+        } catch (Exception $e) {
+            echo 'Lỗi'. $e->getMessage();
+        }
+    }
 }
