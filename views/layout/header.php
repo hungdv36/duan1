@@ -2,7 +2,7 @@
     <!-- main header start -->
     <div class="main-header d-none d-lg-block">
         <!-- header top start -->
-        <div class="header-top bdr-bottom">
+        <!-- <div class="header-top bdr-bottom">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
@@ -30,11 +30,11 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- header top end -->
 
         <!-- header middle area start -->
@@ -191,6 +191,7 @@
                                             ?>
                                             <li><a href="login-register.html">register</a></li>
                                             <li><a href="my-account.html">my account</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng</a></li>
                                         </ul>
                                     </li>
                                     <li>
