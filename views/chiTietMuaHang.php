@@ -24,7 +24,7 @@
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
                                     <li class="breadcrumb-item"><a href="shop.html">shop</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Bills</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Bill detail</li>
                                 </ul>
                             </nav>
                         </div>
@@ -39,46 +39,91 @@
             <div class="container">
                 <div class="section-bg-color">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <!-- Cart Table Area -->
+                        <div class="col-lg-7">
+                            <!-- Thông tin sản phẩm của đơn hàng -->
                             <div class="cart-table table-responsive">
                                 <form action="?act=cap-nhat-so-luong" method="POST">
                                     <table class="table table-bordered">
                                         <thead>
-                                            <tr>
-                                                <th>Mã đơn hàng</th>
-                                                <th>Ngày đặt</th>
-                                                <th>Tổng tiền</th>
-                                                <th>Phương thức thanh toán</th>
-                                                <th>Trạng thái đơn hàng</th>
-                                                <th>Thao tác</th>
+                                           <tr colspan="5">
+                                                <th>Thông tin sản phẩm</th>
+                                           </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="text-center">
+                                                <th>Hình ảnh</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Đơn giá</th>
+                                                <th>Số lượng</th>
+                                                <th>Thành tiền</th>
+                                            </tr>
+                                            <?php foreach($chiTietDonHang as $item) : ?>
+                                                <tr>  
+                                                    <td>
+                                                        <img class="img-fluid" src="<?= BASE_URL . $item['hinh_anh'] ?>" alt="Product" width="100" />
+                                                    </td>
+                                                    <td><?= $item['ten_san_pham']?></td>
+                                                    <td><?= number_format($item['don_gia'], 0, ',', '.') ?> đ</td>
+                                                    <td><?= $item['so_luong']?></td>
+                                                    <td><?= number_format($item['thanh_tien'], 0, ',', '.')?> đ</td>
+                                                </tr>
+                                            <?php endforeach;?>
+                                            </tbody>
+                                    </table>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <!-- Thông tin đơn hàng -->
+                            <div class="cart-table table-responsive">
+                                <form action="?act=cap-nhat-so-luong" method="POST">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr colspan="2">
+                                                <th>Thông tin đơn hàng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                            foreach ($donHangs as $donHang):
-                                            ?>
-                                                <tr>
-                                                    <th class="text-center"><?= $donHang['ma_don_hang']?></th>
-                                                    <td><?= $donHang['ngay_dat']?></td>
-                                                    <td><?= formatPrice($donHang['tong_tien'])?> đ</td>
-                                                    <td><?= $phuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']]?></td>
-                                                    <td><?= $trangThaiDonHang[$donHang['trang_thai_id']]?></td>
-                                                    <td>
-                                                        <a href="<?= BASE_URL?>?act=chi-tiet-mua-hang&id=<?= $donHang['id']?>"  class="btn btn-sqr">
-                                                            Chi tiết đơn hàng
-                                                        </a>
-                                                        <?php if($donHang['trang_thai_id'] == 1): ?>
-                                                            <a href="<?= BASE_URL?>?act=huy-don-hang&id=<?= $donHang['id']?>" class="btn btn-sqr"
-                                                            onclick="return confirm('Xác nhận hủy đơn hàng')">
-                                                                Hủy
-                                                            </a>
-                                                        <?php endif; ?>    
-                                                    </td>
-                                                </tr>
-                                            <?php
-                                            endforeach;
-                                            ?>
+                                            <tr>
+                                                <th>Mã đơn hàng:</th>
+                                                <td><?= $donHang['ma_don_hang']?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Người nhận</th>
+                                                <td><?= $donHang['ten_nguoi_nhan']?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Email:</th>
+                                                <td><?= $donHang['email_nguoi_nhan']?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Số điện thoại:</th>
+                                                <td><?= $donHang['sdt_nguoi_nhan']?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Địa chỉ:</th>
+                                                <td><?= $donHang['dia_chi_nguoi_nhan']?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Ngày đặt:</th>
+                                                <td><?= $donHang['ngay_dat']?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Ghi chú:</th>
+                                                <td><?= $donHang['ghi_chu']?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tổng tiền:</th>
+                                                <td><?= number_format($donHang['tong_tien'], 0, ',', '.')?> đ</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Phương thức thanh toán:</th>
+                                                <td><?= $phuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']]?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Trạng thái đơn hàng</th>
+                                                <td><?= $trangThaiDonHang[$donHang['trang_thai_id']]?></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                             </div>

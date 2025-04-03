@@ -86,6 +86,7 @@ class DonHang{
             echo 'Lỗi'. $e->getMessage();
         }
     }
+
     public function getDonHangById($donHangId){
         try {
             $sql = "SELECT * FROM don_hangs WHERE id =:id";
@@ -93,6 +94,27 @@ class DonHang{
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([':id' => $donHangId]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            echo 'Lỗi'. $e->getMessage();
+        }
+    }
+    public function getChiTietDonHangByDonHangId($donHangId){
+        try {
+            $sql = "SELECT 
+                    chi_tiet_don_hangs.*,
+                    san_phams.ten_san_pham,
+                    san_phams.hinh_anh,
+            FROM
+            chi_tiet_don_hangs
+            JOIN
+            san_phams ON chi_tiet_don_hangs.san_pham_id = san_phams.id
+            WHERE
+            chi_tiet_don_hangs.don_hang_id =:don_hang_id";
+            
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':don_hang_id' => $donHangId]);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             echo 'Lỗi'. $e->getMessage();
         }
@@ -111,4 +133,5 @@ class DonHang{
             echo 'Lỗi'. $e->getMessage();
         }
     }
+    
 }
