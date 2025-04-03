@@ -122,7 +122,7 @@ class HomeController
     }
     public function thanhToan(){
         if (isset($_SESSION['user_client'])) {
-            $user = $this->modelTaiKhoan->checkLogin($_SESSION['user_client']);
+            $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
             // lấy dữ liệu giỏ hàng của người dùng
 
             $gioHang = $this->modelGioHang->getGioHangFormUser($user['id']);
@@ -153,7 +153,7 @@ class HomeController
             $ngay_dat = date('Y-m-d');
             $trang_thai_id = 1;
 
-            $user = $this->modelTaiKhoan->checkLogin($_SESSION['user_client']);
+            $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
             $tai_khoan_id = $user['id'];
 
             $ma_don_hang = 'DH-'. rand(1000,9999);
@@ -211,7 +211,7 @@ class HomeController
     public function lichSuMuaHang(){
         if (isset($_SESSION['user_client'])) {
             // lấy thông tin tài khoản đăng nhập
-            $user = $this->modelTaiKhoan->checkLogin($_SESSION['user_client']);
+            $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
             $tai_khoan_id = $user['id'];
 
             // lấy ra danh sách trạng thái đơn hàng
@@ -234,7 +234,7 @@ class HomeController
     public function chiTietMuaHang(){
         if (isset($_SESSION['user_client'])) {
             // lấy thông tin tài khoản đăng nhập
-            $user = $this->modelTaiKhoan->checkLogin($_SESSION['user_client']);
+            $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
             $tai_khoan_id = $user['id'];
  
             // lấy id đơn hàng truyền từ URL
@@ -268,7 +268,7 @@ class HomeController
     public function huyDonHang(){
         if (isset($_SESSION['user_client'])) {
            // lấy thông tin tài khoản đăng nhập
-           $user = $this->modelTaiKhoan->checkLogin($_SESSION['user_client']);
+           $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
            $tai_khoan_id = $user['id'];
 
            // lấy id đơn hàng truyền từ URL
