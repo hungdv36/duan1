@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 // Require file Common
 require_once './commons/env.php'; // Khai báo biến môi trường
@@ -9,6 +10,7 @@ require_once './controllers/HomeController.php';
 
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
+require_once './models/TaiKhoan.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -26,10 +28,12 @@ match ($act) {
     
     '/' =>(new HomeController())->home(), //trường hợp đặc biệt
   
-    // BASE_URL/?act=tên đường dẫn
     'san-pham-tri-tiet' =>(new HomeController())->chiTietSanPham(),
 
-    default => function() {
-        echo "404 - Không tìm thấy trang";
-    }
+    'login' =>(new HomeController())->formLogin(),
+    'check-login' =>(new HomeController())->postLogin(),
+
+    // default => function() {
+    //     echo "404 - Không tìm thấy trang";
+    // }
 };

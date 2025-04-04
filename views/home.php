@@ -6,19 +6,23 @@ require_once 'layout/menu.php';
 ?>
 <main>
     <!-- hero slider area start -->
-    <section class="slider-area">
+    <section class="slider-area" >
         <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
             <!-- single slider item start -->
             <div class="hero-single-slide hero-overlay">
-                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/slider1.jpg">
+                <div class="hero-slider-item bg-img" style="height: 400px;" data-bg="assets/img/slider/slider1.jpg">
                 </div>
             </div>
             <div class="hero-single-slide hero-overlay">
-                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/slider2.jpg">
+                <div class="hero-slider-item bg-img" style="height: 400px;" data-bg="assets/img/slider/slider2.jpg">
                 </div>
             </div>
             <div class="hero-single-slide hero-overlay">
-                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/slider3.jpg">
+                <div class="hero-slider-item bg-img" style="height: 400px;" data-bg="assets/img/slider/slider3.jpg">
+                </div>
+            </div>
+            <div class="hero-single-slide hero-overlay">
+                <div class="hero-slider-item bg-img" style="height: 400px;" data-bg="assets/img/slider/slider4.jpg">
                 </div>
             </div>
             <!-- single slider item start -->
@@ -71,6 +75,44 @@ require_once 'layout/menu.php';
                             <p>Bảo mật thanh toán</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-statistics-area">
+        <div class="container">
+            <div class="row row-20 mtn-20">
+                <div class="col-sm-6">
+                    <figure class="banner-statistics mt-20">
+                        <a href="#">
+                            <img src="assets/img/slider/slider1.jpg" alt="product banner" width="545px" height="180px">
+                        </a>
+                        
+                    </figure>
+                </div>
+                <div class="col-sm-6">
+                    <figure class="banner-statistics mt-20">
+                        <a href="#">
+                            <img src="assets/img/slider/slider2.jpg" alt="product banner" width="545px" height="180px">
+                        </a>
+                        
+                    </figure>
+                </div>
+                <div class="col-sm-6">
+                    <figure class="banner-statistics mt-20">
+                        <a href="#">
+                            <img src="assets/img/slider/slider3.jpg" alt="product banner" width="545px" height="180px">
+                        </a>
+                        
+                    </figure>
+                </div>
+                <div class="col-sm-6">
+                    <figure class="banner-statistics mt-20">
+                        <a href="#">
+                            <img src="assets/img/slider/slider4.jpg" alt="product banner" width="545px" height="180px">
+                        </a>
+                        
+                    </figure>
                 </div>
             </div>
         </div>
@@ -244,7 +286,7 @@ require_once 'layout/menu.php';
 
     <!-- testimonial area start -->
     <section class="testimonial-area section-padding bg-img" data-bg="">
-        <img src="assets/img/slider/slider4.jpg" width="1900" height="400" alt="">
+        <img src="assets/img/slider/slider5.jpg" width="1900" height="400" alt="">
     </section>
     <div class="brand-logo section-padding pt-0">
         <div class="container">
