@@ -230,7 +230,7 @@
                                 <div class="product-carousel-4 slick-row-10 slick-arrow-style">
                                     <!-- product item start -->
                                     <?php foreach ($danhSachSanPham as $sanPham){?>
-                                    <form action="?act=them-gio-hang" method="POST">
+                                    <form action="?act=them-vao-gio-hang" method="POST">
                                         <div class="product-item">
                                             <figure class="product-thumb">
                                                 <a href="product-details.html">
@@ -598,7 +598,7 @@
                     <div class="product-carousel-4_2 slick-row-10 slick-arrow-style">
                         <?php foreach ($danhSachSanPhamNoiBat as $spNoiBat){?>
                         <!-- product item start -->
-                        <form action="?act=them-gio-hang" method="post">
+                        <form action="?act=them-vao-gio-hang" method="post">
                             <div class="product-item">
                                 <figure class="product-thumb">
                                     <a href="product-details.html">
@@ -1403,7 +1403,7 @@
             </div>
             <div class="modal-body">
                 <!-- product details inner end -->
-                 <form action="?act=them-gio-hang" method="post">
+                 <form action="?act=them-vao-gio-hang" method="post">
                  <div class="product-details-inner">
                     <div class="row">
                         <div class="col-lg-5">

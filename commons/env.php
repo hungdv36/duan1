@@ -6,7 +6,8 @@
 define('BASE_URL'       , 'http://localhost/DuAn1/duan1/');
 
 // Đường dẫn vào phầm admin
-define('BASE_URL_ADMIN'       , 'http://localhost/DuAn1/duan1/admin/');
+//define('BASE_URL_ADMIN'       , 'http://localhost/DuAn1/duan1/admin/');
+define('BASE_URL_ADMIN'       , 'http://localhost/duan1/admin/');
 
 define('DB_HOST'    , 'localhost');
 define('DB_PORT'    , 3306);

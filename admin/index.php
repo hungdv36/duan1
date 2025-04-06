@@ -10,22 +10,18 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminDonHangController.php';
-<<<<<<< HEAD
 
-=======
 require_once './controllers/AdminBaoCaoThongKeController.php';
 require_once './controllers/AdminTaiKhoanController.php';
->>>>>>> upstream/daohung36
+
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
 require_once './models/AdminSanPham.php';
 require_once './models/AdminDonHang.php';
-<<<<<<< HEAD
 
-=======
 require_once './models/AdminTaiKhoan.php';
->>>>>>> upstream/daohung36
+
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -40,8 +36,6 @@ match ($act) {
     // route báo cáo thống kê - trang chủ
     '/' => (new AdminBaoCaoThongKeController())->home(),
 
-    prinr_r($act); die()l;
-
     // route danh mục
     'danh-muc' =>(new AdminDanhMucController())->danhSachDanhMuc(),
     'form-them-danh-muc' =>(new AdminDanhMucController())->formAddDanhMuc(),
@@ -51,7 +45,7 @@ match ($act) {
     'xoa-danh-muc' =>(new AdminDanhMucController())->deleteDanhMuc(),
 
     // route sản phẩm
-<<<<<<< HEAD
+
     'san-pham' =>(new AdminSanPhamController)->danhSachSanPham(),
     'form-them-san-pham' =>(new AdminSanPhamController)->formAddSanPham(),
     'them-san-pham' =>(new AdminSanPhamController)->postAddSanPham(),
@@ -66,7 +60,6 @@ match ($act) {
     'xoa-don-hang' =>(new AdminDonHangController)->deleteDonHang(),
     'chi-tiet-don-hang' =>(new AdminDonHangController)->detailDonHang(),
 
-=======
     'san-pham' =>(new AdminSanPhamController())->danhSachSanPham(),
     'form-them-san-pham' =>(new AdminSanPhamController())->formAddSanPham(),
     'them-san-pham' =>(new AdminSanPhamController())->postAddSanPham(),
@@ -81,10 +74,10 @@ match ($act) {
 
 
     // route quản lý đơn hàng
-    'don-hang' =>(new AdminDonHangController())->danhSachDonHang(),
-    'form-sua-don-hang' =>(new AdminDonHangController())->formEditDonHang(),
-    'sua-don-hang' =>(new AdminDonHangController())->postEditDonHang(),
-    'chi-tiet-don-hang' =>(new AdminDonHangController())->detailDonHang(),
+    //'don-hang' =>(new AdminDonHangController())->danhSachDonHang(),
+    //'form-sua-don-hang' =>(new AdminDonHangController())->formEditDonHang(),
+    //'sua-don-hang' =>(new AdminDonHangController())->postEditDonHang(),
+    //'chi-tiet-don-hang' =>(new AdminDonHangController())->detailDonHang(),
 
     // route quản lý tài khoản
         // Quản lý tài khoản quản trị
@@ -106,6 +99,5 @@ match ($act) {
     // Route auth
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),
     'check-login-admin' => (new AdminTaiKhoanController())->login(),
-    'logout-admin' => (new AdminTaiKhoanController())->logout(),
->>>>>>> upstream/daohung36
+    'logout-admi' => (new AdminTaiKhoanController())->logout(),
 };

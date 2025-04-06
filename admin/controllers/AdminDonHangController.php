@@ -4,10 +4,7 @@ class AdminDonHangController
 {
 
     public $modelDonHang;
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/daohung36
     public function __construct()
     {
         $this->modelDonHang = new AdminDonHang();
@@ -16,7 +13,7 @@ class AdminDonHangController
     {
 
         $listDonHang = $this->modelDonHang->getAllDonHang();
-<<<<<<< HEAD
+
         require_once './views/donhang/listDonhang.php';
     }
 
@@ -30,9 +27,9 @@ class AdminDonHangController
     //         require_once './views/danhmuc/editDanhMuc.php';
     //     }else{
     //         header("Location: " . BASE_URL_ADMIN . '?act=danh-muc');
-=======
-        require_once './views/donhang/listDonHang.php';
-    }
+
+      //  require_once './views/donhang/listDonHang.php';
+  //  }
 
     public function detailDonHang(){
         $don_hang_id = $_GET['id_don_hang'];
@@ -216,12 +213,11 @@ class AdminDonHangController
     //         require_once './views/sanpham/detailSanPham.php';
     //     }else{
     //         header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
->>>>>>> upstream/daohung36
     //         exit();
     //     }
         
     // }
-<<<<<<< HEAD
+
 
     // public function postEditDanhMuc(){
     //     // Hàm này dùng để xử lý thêm dữ liệu
@@ -266,6 +262,4 @@ class AdminDonHangController
     //     header("Location: " . BASE_URL_ADMIN . '?act=danh-muc');
     //        exit();
     // }
-=======
->>>>>>> upstream/daohung36
 }
