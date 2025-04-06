@@ -1,3 +1,4 @@
+
 <div class="offcanvas-minicart-wrapper">
     <div class="minicart-inner">
         <div class="offcanvas-overlay"></div>
@@ -88,7 +89,7 @@
 
                 <div class="minicart-button">
                     <a href="<?=  BASE_URL . '?act=gio-hang'   ?>"><i class="fa fa-shopping-cart"></i> Xem giỏ hàng</a>
-                    <a href="?act=checkout"><i class="fa fa-share"></i> Thanh toán</a>
+                    <a href="?act=thanh-toan"><i class="fa fa-share"></i> Thanh toán</a>
                 </div>
             </div>
         </div>

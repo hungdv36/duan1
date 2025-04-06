@@ -25,11 +25,11 @@ class HomeController
         echo 'Đây là trang chủ';
     }
 
-    public function danhSachSanPham(){
-        $listProduct = $this->modelSanPham->getAllProduct();
-        // var_dump($listProduct);die();
-        require_once './views/listProduct.php';
-    }
+    // public function danhSachSanPham(){
+    //     $listProduct = $this->modelSanPham->getAllProduct();
+    //     // var_dump($listProduct);die();
+    //     require_once './views/listProduct.php';
+    // }
     public function chiTietSanPham(){
         $id = $_GET['id_san_pham'];
         $sanPham = $this->modelSanPham->getDetailSanPham($id);

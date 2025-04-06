@@ -1,16 +1,11 @@
 
-<!doctype html>
-<html class="no-js" lang="zxx">
+
+    <?php include 'views/layout/header.php'?>
 
 
-<!-- Mirrored from htmldemo.net/corano/corano/product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Jun 2024 09:54:00 GMT -->
-<head>
-    <?php include 'views/layout/head.php'?>
-</head>
 
-<body>
 <!-- Start Header Area -->
-<?php include 'views/layout/header.php'?>
+<?php include 'views/layout/menu.php'?>
 <!-- end Header Area -->
 
 <main>
@@ -22,7 +17,7 @@
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i></a></li>
                                 <li class="breadcrumb-item"><a href="shop.html">shop</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">product details</li>
                             </ul>
