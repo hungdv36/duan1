@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="minicart-button">
-                    <a href="?act=gio-hang"><i class="fa fa-shopping-cart"></i> Xem giỏ hàng</a>
+                    <a href="<?=  BASE_URL . '?act=gio-hang'   ?>"><i class="fa fa-shopping-cart"></i> Xem giỏ hàng</a>
                     <a href="?act=checkout"><i class="fa fa-share"></i> Thanh toán</a>
                 </div>
             </div>

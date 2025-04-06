@@ -70,15 +70,18 @@ require_once 'layout/menu.php';
                                         <span><?= 'Số lượng:' . $sanPham['so_luong']   ?></span>
                                     </div>
                                     <p class="pro-desc"><?= 'Mô tả :'  . $sanPham['mo_ta'] ?></p>
+                                    <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post">
                                     <div class="quantity-cart-box d-flex align-items-center">
                                         <h6 class="option-title">Số lượng:</h6>
                                         <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1"></div>
+                                            <input type="hidden" name="san_pham_id" value="<?=  $sanPham['id'] ?>">
+                                            <div class="pro-qty"><input type="text" value="1" name="so_luong"></div>
                                         </div>
                                         <div class="action_link">
-                                            <a class="btn btn-cart2" href="#">Thêm giỏ hàng</a>
+                                            <button class="btn btn-cart2" >Thêm giỏ hàng</button>
                                         </div>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +191,7 @@ require_once 'layout/menu.php';
                                         </div>
 
                                         <div class="cart-hover">
-                                            <button class="btn btn-cart">Xem tri tiết</button>
+                                            <button class="btn btn-cart">Xem chi tiết</button>
                                         </div>
                                     </figure>
                                     <div class="product-caption text-center">
@@ -218,4 +221,6 @@ require_once 'layout/menu.php';
         </section>
         <!-- related products area end -->
 </main>
+<?php require_once 'layout/miniCart.php'; ?>
+
 <?php require_once 'layout/footer.php'; ?>

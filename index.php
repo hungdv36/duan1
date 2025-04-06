@@ -34,19 +34,20 @@ match ($act) {
     // 'trangchu' => (new HomeController())->trangchu(),
 
     'san-pham-tri-tiet' =>(new HomeController())->chiTietSanPham(),
-
-    'login' =>(new HomeController())->formLogin(),
-    'check-login' =>(new HomeController())->postLogin(),
-
-    // default => function() {
-    //     echo "404 - Không tìm thấy trang";
-    // }
-
-
-
+    'them-gio-hang' =>(new HomeController())->addGioHang(),
+    'gio-hang' =>(new HomeController())->gioHang(),
     'thanh-toan' => (new HomeController())->thanhToan(),
     'xu-ly-thanh-toan' => (new HomeController())->postThanhToan(),  
     'lich-su-mua-hang' => (new HomeController())->lichSuMuaHang(),  
     'chi-tiet-mua-hang' => (new HomeController())->chiTietMuaHang(),  
     'huy-don-hang' => (new HomeController())->huyDonHang(),
+    
+    // default => function() {
+    //     echo "404 - Không tìm thấy trang";
+    // }
+
+
+    'login' =>(new HomeController())->formLogin(),
+    'check-login' =>(new HomeController())->postLogin(),
+
 };

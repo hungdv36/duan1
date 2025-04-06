@@ -1,4 +1,4 @@
-<?php require_once('layout/hearder.php'); ?>
+<?php require_once('layout/header.php'); ?>
 
 <?php require_once('layout/menu.php'); ?>
 
@@ -28,6 +28,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Checkout Login Coupon Accordion Start -->
+                     <div class="checkoutaccordion" id="checkOutAccordion">
 
                     <div class="card">
                         <h6>Thêm mã giảm giá? <span data-bs-toggle="collapse" data-bs-target="#couponaccordion">Click
@@ -58,7 +59,7 @@
                     <div class="billing-form-wrap">
                             <div class="single-input-item">
                                 <label for="ten_nguoi_nhan" class="required">Tên người nhận</label>
-                                <input type="email" id="ten_nguoi_nhan" name="ten_nguoi_nhan" value="<?= $user['ho_ten'] ?>" placeholder="Vui lòng nhập tên" required />
+                                <input type="text" id="ten_nguoi_nhan" name="ten_nguoi_nhan" value="<?= $user['ho_ten'] ?>" placeholder="Vui lòng nhập tên" required />
                             </div>
 
                             <div class="single-input-item">
@@ -152,7 +153,7 @@
                                     </div>
                                 </div>
                                 <div class="payment-method-details" data-method="cash">
-                                    <p>Khách hnagf có thể thanh toán sau khi đã nhận hàng thành công(Cần xác nhận đơn hàng).</p>
+                                    <p>Khách hàng có thể thanh toán sau khi đã nhận hàng thành công(Cần xác nhận đơn hàng).</p>
                                 </div>
                             </div>
                             <div class="single-payment-method">
@@ -170,7 +171,7 @@
                             <div class="summary-footer-area">
                                 <div class="custom-control custom-checkbox mb-20">
                                     <input type="checkbox" class="custom-control-input" id="terms" required />
-                                    <label class="custom-control-label" for="terms"> Xác nhận đặt hàng<a href="index.html">terms and conditions.</a></label>
+                                    <label class="custom-control-label" for="terms"> Xác nhận đặt hàng</label>
                                 </div>
                                 <button type="submit" class="btn btn-sqr">Tiến hàng đặt hàng</button>
                             </div>
