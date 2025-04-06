@@ -280,7 +280,7 @@ public function chiTietMuaHang(){
             exit;
         }
 
-        require_once "./view/chiTietMuaHang.php";
+        require_once "./views/chiTietMuaHang.php";
      } else {
         var_dump('Bạn chưa đăng nhập');
         die();

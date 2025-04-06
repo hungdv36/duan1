@@ -45,8 +45,8 @@
                                 <form action="?act=cap-nhat-so-luong" method="POST">
                                     <table class="table table-bordered">
                                         <thead>
-                                           <tr colspan="5">
-                                                <th>Thông tin sản phẩm</th>
+                                           <tr >
+                                                <th colspan="5" class="text-center">Thông tin sản phẩm</th>
                                            </tr>
                                         </thead>
                                         <tbody>
@@ -79,8 +79,8 @@
                                 <form action="?act=cap-nhat-so-luong" method="POST">
                                     <table class="table table-bordered">
                                         <thead>
-                                            <tr colspan="2">
-                                                <th>Thông tin đơn hàng</th>
+                                            <tr >
+                                                <th colspan="2" class="text-center">Thông tin đơn hàng</th>
                                             </tr>
                                         </thead>
                                         <tbody>

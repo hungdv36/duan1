@@ -103,7 +103,7 @@ class DonHang{
             $sql = "SELECT 
                     chi_tiet_don_hangs.*,
                     san_phams.ten_san_pham,
-                    san_phams.hinh_anh,
+                    san_phams.hinh_anh
             FROM
             chi_tiet_don_hangs
             JOIN
