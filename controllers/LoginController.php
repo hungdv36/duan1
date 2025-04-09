@@ -28,6 +28,7 @@ class LoginController
                 $user = $this->modelLogin->checkLogin($email, $password);
 
                 if($user){
+                    //session user
                     $_SESSION['user'] = $user;
                     header('location: ?act=trang-chu');
                     exit();
