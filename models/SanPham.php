@@ -66,7 +66,7 @@ class SanPham {
 
             return  $stmt->fetch();
         } catch (Exception $e) {
-            echo "Lỗi: " . $e->getMessage();
+            echo "Loi: " . $e->getMessage();
         }
     }
 
@@ -88,7 +88,7 @@ class SanPham {
 
             return  $stmt->fetchAll();
         } catch (Exception $e) {
-            echo "Lỗi: " . $e->getMessage();
+            echo "loi: " . $e->getMessage();
         }
     }
 }

@@ -7,6 +7,7 @@ class TaiKhoan {
         $this->conn = connectDB();
     }
 
+    //kiem tra dang nhap
     public function checkLogin($email, $password)
     {
         try {

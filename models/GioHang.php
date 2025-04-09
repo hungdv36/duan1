@@ -47,6 +47,7 @@ class GioHang {
         }
     }
 
+    //cap nhat so luong gio hang
     public function updateSoLuong($gio_hang_id, $san_pham_id, $so_luong) {
         try {
             $sql = 'UPDATE chi_tiet_gio_hangs

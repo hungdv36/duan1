@@ -14,7 +14,6 @@
 <!-- end Header Area -->
 
 <main>
-    <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
         <div class="container">
             <div class="row">
