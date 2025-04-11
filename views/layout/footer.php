@@ -29,7 +29,7 @@
                                 <address class="contact-block">
                                     <ul>
                                         <li><i class="pe-7s-home"></i>123 Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</li>
-                                        <li><i class="pe-7s-mail"></i> <a href="#">hldcstore@gmail.com </a></li>
+                                        <li><i class="pe-7s-mail"></i> <a href="#">watchshop@gmail.com </a></li>
                                         <li><i class="pe-7s-call"></i> <a href="#">0999986868</a></li>
                                     </ul>
                                 </address>
