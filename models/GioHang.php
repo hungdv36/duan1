@@ -86,6 +86,7 @@ class GioHang {
         }
     }
 
+    // Xóa sản phẩm khỏi giỏ hàng
     public function xoaSanPhamKhoiGioHang($gio_hang_id, $san_pham_id) {
         try {
             $sql = 'DELETE FROM chi_tiet_gio_hangs 

@@ -48,6 +48,7 @@ class SanPham {
         }
     }
 
+    //lay chi tiet san pham
     public function layChiTietSanPham($id){
         try {
             $sql = 'SELECT san_phams.*, 
@@ -69,7 +70,8 @@ class SanPham {
             echo "Loi: " . $e->getMessage();
         }
     }
-
+  
+    //lay san pham theo danh muc
     public function laySanPhamTheoDanhMuc($id){
         try {
             $sql = 'SELECT san_phams.*, 

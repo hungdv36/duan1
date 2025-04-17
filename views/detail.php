@@ -14,6 +14,7 @@
 <!-- end Header Area -->
 
 <main>
+    //
     <div class="breadcrumb-area">
         <div class="container">
             <div class="row">
@@ -34,6 +35,7 @@
     <!-- breadcrumb area end -->
 
     <!-- page main wrapper start -->
+    
     <div class="shop-main-wrapper section-padding pb-0">
         <div class="container">
             <div class="row">
@@ -44,6 +46,7 @@
                         <div class="product-details-inner">
                             <div class="row">
                                 <div class="col-lg-5">
+                                    <!-- product large slider end -->
                                     <?php
                                     $hinhAnhSanPham = explode(',', $chiTietSanPham['hinh_anh_san_pham']);
                                     ?>

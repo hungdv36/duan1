@@ -40,6 +40,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- Cart Table Area -->
+                        <!-- Cart Updated -->
                         <div class="cart-table table-responsive">
                             <form action="?act=cap-nhat-so-luong" method="POST">
                                 <table class="table table-bordered">
@@ -386,4 +387,5 @@
 
 
 <!-- Mirrored from htmldemo.net/corano/corano/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Jun 2024 09:54:00 GMT -->
+ 
 </html>

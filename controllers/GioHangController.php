@@ -8,6 +8,7 @@ class GioHangController
         $this->modelGioHang = new GioHang();
     }
     
+    //hàm hiển thị giỏ hàng
     public function themGioHang()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -10,6 +10,7 @@ class ProductController
         $this->modelDanhMuc = new DanhMuc();
     }
 
+    //hàm hiển thị danh sách sản phẩm
     public function chiTietSanPham()
     {
         try {

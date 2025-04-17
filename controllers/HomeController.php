@@ -33,6 +33,7 @@ class HomeController
         require_once './views/home.php';
     }
 
+    //hàm hiển thị giỏ hàng
     public function themGioHang() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_SESSION['user'])) {
@@ -68,6 +69,7 @@ class HomeController
         }
     }
 
+    //hàm hiển thị giỏ hàng
     public function gioHang(){
         if (isset($_SESSION['user'])) {
             $gioHang = $this->modelGioHang->layGioHangTuNguoiDung($_SESSION['user']['id']);

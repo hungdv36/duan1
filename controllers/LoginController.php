@@ -7,7 +7,7 @@ class LoginController
     {
         $this->modelLogin = new TaiKhoan();
     }
-
+    //session dang nhap 
     public function dangNhap()
     {
         try {

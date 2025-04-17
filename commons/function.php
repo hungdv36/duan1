@@ -80,6 +80,7 @@ function checkLoginAdmin(){
 
 function formatPrice($price) {
     // Đảm bảo rằng giá trị là số
+    //gia tri la so duoc tro den 
     if (is_numeric($price)) {
           return number_format($price, 0, ',', '.');
     }

@@ -1403,6 +1403,7 @@
             </div>
             <div class="modal-body">
                 <!-- product details inner end -->
+                <!-- product details inner end -->
                  <form action="?act=them-vao-gio-hang" method="post">
                  <div class="product-details-inner">
                     <div class="row">
