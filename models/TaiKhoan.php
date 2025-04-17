@@ -49,4 +49,35 @@ class TaiKhoan
             echo "Lỗi: " . $e->getMessage();
         }
     }
+    public function register($ho_ten, $email, $mat_khau)
+    {
+        try {
+            // Kiểm tra xem email đã tồn tại chưa
+            $sql = "SELECT * FROM tai_khoans WHERE email = :email";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['email' => $email]);
+            if ($stmt->fetch()) {
+                return "Email đã tồn tại";
+            }
+
+            // Mã hóa mật khẩu
+            $hashed_password = password_hash($mat_khau, PASSWORD_DEFAULT);
+
+            // Thêm người dùng mới
+            $sql = "INSERT INTO tai_khoans (ho_ten, email, mat_khau, chuc_vu_id, trang_thai) VALUES (:ho_ten, :email, :mat_khau, :chuc_vu_id, :trang_thai)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':ho_ten' => $ho_ten,
+                ':email' => $email,
+                ':mat_khau' => $hashed_password,
+                ':chuc_vu_id' => 2,
+                ':trang_thai' => 1
+            ]);
+
+            return true;
+        } catch (\Exception $e) {
+            error_log("Registration error: " . $e->getMessage());
+            return "Đã xảy ra lỗi khi đăng ký: " . $e->getMessage();
+        }
+    }
 }

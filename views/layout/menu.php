@@ -26,10 +26,7 @@
                                 <nav class="desktop-menu">
                                     <ul>
                                         <li><a href="<?= BASE_URL ?>">Trang chủ</a></li>
-                                        <li><a href="#">Sản phẩm <i class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                            </ul>
+                                        <li><a href="<?= BASE_URL . '?act=shop' ?>">Sản phẩm </i></a>
                                         </li>
                                         <li><a href="#">Giới thiệu</a></li>
                                         <li><a href="#">Liên Hệ</a></li>
@@ -67,10 +64,11 @@
                                         <?php if (!isset($_SESSION['user_client'])) {
                                         ?>
                                             <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a></li>
-                                            <li><a href="login-register.html">Đăng ký</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=register' ?>">Đăng ký</a></li>
                                         <?php } else {?>
                                             <li><a href="my-account.html">Tài khoản </a></li>
                                             <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng </a></li>
+                                            <li><a href="<?= BASE_URL . '?act=logout' ?>">Đăng xuất</a></li>
                                         <?php }?>
                                         </ul>
                                     </li>                               

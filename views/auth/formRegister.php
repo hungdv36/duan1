@@ -13,7 +13,7 @@ require_once 'views/layout/menu.php';
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i></a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Đăng nhập</li>
+                                <li class="breadcrumb-item active" aria-current="page">Đăng ký</li>
                             </ul>
                         </nav>
                     </div>
@@ -28,16 +28,19 @@ require_once 'views/layout/menu.php';
         <div class="container" style="max-width: 40vw">
             <div class="member-area-from-wrap">
                 <div class="row">
-                    <!-- Login Content Start -->
+                    <!-- Register Content Start -->
                     <div class="col-lg-12">
-                        <div class="login-reg-form-wrap">
-                            <h5 class="text-center">ĐĂNG NHẬP</h5>
-                            <?php if (isset($_SESSION['error']) && $_SESSION['flash']) : ?>
-                                <p class="text-danger login-box-msg"><?= $_SESSION['error'] ?></p>
+                        <div class="login-reg-form-wrap sign-up-form">
+                            <h5 class="text-center">ĐĂNG KÝ</h5>
+                            <?php if (isset($_SESSION['error']) && $_SESSION['flash'] && is_string($_SESSION['error'])) : ?>
+                                <p class="text-danger login-box-msg"><?= htmlspecialchars($_SESSION['error'], ENT_QUOTES, 'UTF-8') ?></p>
                             <?php else : ?>
-                                <p class="login-box-msg">Vui lòng đăng nhập</p>
+                                <p class="login-box-msg">Tạo tài khoản mới</p>
                             <?php endif; ?>
-                            <form action="<?= BASE_URL . '?act=check-login' ?>" method="post">
+                            <form action="<?= BASE_URL . '?act=post-register' ?>" method="post">
+                                <div class="single-input-item">
+                                    <input type="text" placeholder="Họ và tên" name="ho_ten" required />
+                                </div>
                                 <div class="single-input-item">
                                     <input type="email" placeholder="Email" name="email" required />
                                 </div>
@@ -45,20 +48,18 @@ require_once 'views/layout/menu.php';
                                     <input type="password" placeholder="Mật khẩu" name="password" required />
                                 </div>
                                 <div class="single-input-item">
-                                    <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
-                                        <a href="#" class="forget-pwd">Quên mật khẩu</a>
-                                    </div>
+                                    <input type="password" placeholder="Xác nhận mật khẩu" name="confirm_password" required />
                                 </div>
                                 <div class="single-input-item text-center">
-                                    <button class="btn btn-sqr">Đăng nhập</button>
+                                    <button class="btn btn-sqr">Đăng ký</button>
                                 </div>
                             </form>
                             <p class="text-center mt-3">
-                                Chưa có tài khoản? <a href="<?= BASE_URL . '?act=register' ?>">Đăng ký</a>
+                                Đã có tài khoản? <a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a>
                             </p>
                         </div>
                     </div>
-                    <!-- Login Content End -->
+                    <!-- Register Content End -->
                 </div>
             </div>
         </div>
