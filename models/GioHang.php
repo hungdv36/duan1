@@ -7,6 +7,8 @@ class GioHang {
         $this->conn = connectDB();
     }
 
+
+    //them  gio hang
     public function themGioHang($id) {
         try {
             $sql = 'INSERT INTO gio_hangs (tai_khoan_id) VALUES(:tai_khoan_id)';
@@ -18,6 +20,8 @@ class GioHang {
         }
     }
 
+
+    //lay gio hang tu tai khoan
     public function layGioHangTuNguoiDung($id)
     {
         try {
@@ -67,6 +71,8 @@ class GioHang {
         }
     }
 
+
+    //them chi tiet gio hang
 
     public function addDetailGioHang($gio_hang_id, $san_pham_id, $so_luong) {
         try {

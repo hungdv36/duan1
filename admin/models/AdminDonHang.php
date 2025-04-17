@@ -75,6 +75,7 @@ class AdminDonHang{
             echo "Lỗi: " . $e->getMessage();
         }
     }
+    
     public function getListSpDonHang($id){
         try {
             $sql = 'SELECT  chi_tiet_don_hangs.*, san_phams.ten_san_pham
@@ -137,6 +138,7 @@ class AdminDonHang{
             echo "Lỗi: " . $e->getMessage();
         }
     }
+
 
     public function getDonHangFromKhachHang($id){
         try {

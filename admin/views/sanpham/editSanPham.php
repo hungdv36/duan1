@@ -164,6 +164,7 @@
 <script>
     var faqs_row = <?= count($listAnhSanPham); ?>;
 
+    // Add new row
     function addfaqs() {
         html = '<tr id="faqs-row-' + faqs_row + '">';
         html += '<td><img src="https://watchesbysjx.com/wp-content/uploads/2022/11/rolex-Deepsea-Challenge-126067-3.jpg" alt="" style="width: 50px; height: 50px;"></td>';
@@ -177,6 +178,7 @@
         faqs_row++;
     }
 
+    // Remove row
     function removeRow(rouID, imgID){
         $('#faqs-row-' + rouID).remove();
         if(imgID !== null){

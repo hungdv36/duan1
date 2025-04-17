@@ -10,6 +10,7 @@ class AdminSanPhamController
         $this->modelSanPham = new AdminSanPham();
         $this->modelDanhMuc = new AdminDanhMuc();
     }
+    //hàm hiển thị danh sách sản phẩm
     public function danhSachSanPham()
     {
 
@@ -222,7 +223,8 @@ class AdminSanPhamController
                 exit();
             }else{
                 // Trả về form  và lỗi
-                // Đặt chỉ thị xóa session sao khi hiển thị form 
+                // Đặt chỉ thị xóa session sao khi hiển thị form
+                // $_SESSION['error'] = $errors;
                 $_SESSION['flash'] = true;
                 header("Location: " . BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $san_pham_id);
                 exit();

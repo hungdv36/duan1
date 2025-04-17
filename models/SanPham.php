@@ -49,6 +49,7 @@ class SanPham {
     }
 
     //lay chi tiet san pham
+    //layChiTietSanPham
     public function layChiTietSanPham($id){
         try {
             $sql = 'SELECT san_phams.*, 

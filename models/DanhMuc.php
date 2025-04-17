@@ -6,6 +6,7 @@ class DanhMuc {
     {
         $this->conn = connectDB();
     }
+    //lay danh sach danh muc san pham
 
     public function danhSachDanhMuc(){
         try {

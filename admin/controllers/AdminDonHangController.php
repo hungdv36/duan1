@@ -29,6 +29,8 @@ class AdminDonHangController
     //         header("Location: " . BASE_URL_ADMIN . '?act=danh-muc');
 
       //  require_once './views/donhang/listDonHang.php';
+      //  require_once './views/donhang/listDonHang.php';
+
   //  }
 
     public function detailDonHang(){

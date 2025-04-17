@@ -78,6 +78,8 @@ match ($act) {
     //'form-sua-don-hang' =>(new AdminDonHangController())->formEditDonHang(),
     //'sua-don-hang' =>(new AdminDonHangController())->postEditDonHang(),
     //'chi-tiet-don-hang' =>(new AdminDonHangController())->detailDonHang(),
+    //'chi-tiet-don-hang' =>(new AdminDonHangController())->detailDonHang(),
+
 
     // route quản lý tài khoản
         // Quản lý tài khoản quản trị

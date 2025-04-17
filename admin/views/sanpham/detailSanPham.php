@@ -107,6 +107,8 @@
 <?php include './views/layout/footer.php'; ?>
 
 <!-- Page specific script -->
+<!-- Page specific script -->
+
 <script>
   $(function() {
     $("#example1").DataTable({

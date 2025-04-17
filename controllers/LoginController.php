@@ -40,6 +40,7 @@ class LoginController
         }
     }
 
+    //hàm đăng xuất
     public function dangXuat()
     {
         unset($_SESSION['user']);

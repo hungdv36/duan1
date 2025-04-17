@@ -19,7 +19,7 @@ class ProductController
             }
 
             $id_danhmuc = $_GET['id_danhmuc'];
-
+        // $id = $_GET['id'];
             $chiTietSanPham = $this->modelSanPham->layChiTietSanPham($id);
             $dsSanPhamLienQuan = $this->modelSanPham->laySanPhamTheoDanhMuc($id_danhmuc);
             require_once './views/detail.php';

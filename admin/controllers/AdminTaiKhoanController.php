@@ -19,6 +19,8 @@ class AdminTaiKhoanController
         require_once './views/taikhoan/quantri/listQuanTri.php';
     }
 
+    // Hàm này dùng để hiển thị form thêm tài khoản
+
     public function formAddQuanTri()
     {
         require_once './views/taikhoan/quantri/addQuanTri.php';
@@ -143,6 +145,7 @@ class AdminTaiKhoanController
         }
     }
 
+    // Hàm này dùng để hiển thị danh sách tài khoản khách hàng
     public function danhSachKhachHang()
     {
         $listkhachHang = $this->modelTaiKhoan->getAllTaiKhoan(2);

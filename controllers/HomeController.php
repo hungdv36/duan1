@@ -14,6 +14,7 @@ class HomeController
         $this->modelGioHang = new GioHang();
     }
 
+    //hàm hiển thị trang chủ
     public function home()
     {
         if (isset($_SESSION['user'])) {
@@ -87,6 +88,8 @@ class HomeController
             var_dump('Chưa đăng nhập'); die;
         }
     }
+
+    //hàm cập nhật giỏ hàng
 
     public function capNhatSoLuong() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user'])) {
