@@ -13,8 +13,8 @@ require_once 'views/layout/menu.php';
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
-                                <li class="breadcrumb-item active" aria-current="page">login-Register</li>
+                            <li class="breadcrumb-item"><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i></a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Đăng nhập</li>
                             </ul>
                         </nav>
                     </div>
@@ -33,17 +33,17 @@ require_once 'views/layout/menu.php';
                     <div class="col-lg-12">
                         <div class="login-reg-form-wrap">
                             <h5 class="text-center">ĐĂNG NHẬP</h5>
-                            <?php if(isset($_SESSION['error'])){ ?>
-                    <p class="text-danger login-box-msg"><?= $_SESSION['error'] ?></p>
-                <?php }else{ ?>
-                    <p class="login-box-msg">Vui lòng đăng nhập</p>
-                <?php } ?>
+                            <?php if (isset($_SESSION['error']) && $_SESSION['flash']) : ?>
+                                 <p class="text-danger login-box-msg"><?= $_SESSION['error'] ?></p>
+                             <?php else : ?>
+                                 <p class="login-box-msg">Vui lòng đăng nhập</p>
+                             <?php endif; ?>
                             <form action="<?= BASE_URL . '?act=check-login' ?>" method="post">
                                 <div class="single-input-item">
-                                    <input type="email" placeholder="Email or Username" name="email" required />
+                                <input type="email" placeholder="Email" name="email" required />
                                 </div>
                                 <div class="single-input-item">
-                                    <input type="password" placeholder="Enter your Password" name="password" required />
+                                <input type="password" placeholder="Mật khẩu" name="password" required />
                                 </div>
                                 <div class="single-input-item">
                                     <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
@@ -54,6 +54,9 @@ require_once 'views/layout/menu.php';
                                 <div class="single-input-item text-center">
                                     <button class="btn btn-sqr">Đăng nhập</button>
                                 </div>
+                                <p class="text-center mt-3">
+                                 Chưa có tài khoản? <a href="<?= BASE_URL . '?act=register' ?>">Đăng ký</a>
+                             </p>
                             </form>
                         </div>
                     </div>

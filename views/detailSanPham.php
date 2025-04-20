@@ -14,7 +14,8 @@ require_once 'layout/menu.php';
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="shop.html">sản phẩm</a></li>
+                                <li class="breadcrumb-item"><a href="<?= BASE_URL . '?act=shop' ?>">Cửa hàng</a></li>
+ 
                                 <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
                             </ul>
                         </nav>

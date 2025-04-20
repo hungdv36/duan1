@@ -41,7 +41,7 @@
                                         <th class="pro-price">Giá Tiền</th>
                                         <th class="pro-quantity">Số lượng</th>
                                         <th class="pro-subtotal">Tổng tiền</th>
-                                        <th class="pro-remove">Thao tác</th>
+                                        <!-- <th class="pro-remove">Thao tác</th> -->
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -82,19 +82,19 @@
                                                     ?>
                                                 </span>
                                             </td>
-                                            <td class="pro-remove">
+                                            <!-- <td class="pro-remove">
                                                 <a href="?act=xoa-san-pham-khoi-gio-hang&san_pham_id=<?= $sanPham['san_pham_id'] ?>" 
                                                 class="minicart-remove" 
                                                 onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
                                                     <i class="pe-7s-close"></i>
                                                 </a>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                     </tbody>
                                 </table>
                                 <!-- Cart Update Option -->
-                                <div class="cart-update-option d-block d-md-flex justify-content-between">
+                                <!-- <div class="cart-update-option d-block d-md-flex justify-content-between">
                                     <div class="apply-coupon-wrapper">
                                         <form action="#" method="post" class=" d-block d-md-flex">
                                             <input type="text" placeholder="Enter Your Coupon Code" required />
@@ -104,7 +104,7 @@
                                     <div class="cart-update">
                                         <button type="submit" class="btn btn-sqr">Update Cart</button>
                                     </div>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
