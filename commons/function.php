@@ -21,3 +21,68 @@ function connectDB() {
         echo ("Connection failed: " . $e->getMessage());
     }
 }
+
+// Thêm file
+function uploadFile($file, $folderUpload){
+    $pathStrorage = $folderUpload . time() . $file['name'];
+
+    $from = $file['tmp_name'];
+    $to = PATH_ROOT . $pathStrorage;
+
+    if(move_uploaded_file($from, $to)){
+        return $pathStrorage;
+    }
+    return null;
+}
+
+// Xóa file
+function deleteFile($file){
+    $pathDelete = PATH_ROOT . $file;
+    if (file_exists($pathDelete)) {
+        unlink($pathDelete);
+    }
+}
+
+// Xóa session sau khi load trang
+function deleteSessionError(){
+    if (isset($_SESSION['flash'])) {
+        // Hủy session sau khi tải trang
+        unset($_SESSION['flash']);
+        session_unset();
+        // session_destroy();
+    }
+}
+
+// Upload - update album ảnh
+function uploadFileAlbum($file, $folderUpload, $key){
+    $pathStrorage = $folderUpload . time() . $file['name'][$key];
+
+    $from = $file['tmp_name'][$key];
+    $to = PATH_ROOT . $pathStrorage;
+
+    if(move_uploaded_file($from, $to)){
+        return $pathStrorage;
+    }
+    return null;
+}
+
+// format date
+function formatDate($date){
+    return date("d-m-Y", strtotime($date));
+}
+
+function checkLoginAdmin(){
+    if(!isset($_SESSION['user_admin'])){
+        header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+        exit();
+    }
+}
+
+function formatPrice($price) {
+    // Đảm bảo rằng giá trị là số
+    //gia tri la so duoc tro den 
+    if (is_numeric($price)) {
+          return number_format($price, 0, ',', '.');
+    }
+    return '0';
+}
